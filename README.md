@@ -152,7 +152,7 @@ Inspect the UI Automation tree to verify that all controls have proper Automatio
 
 The easiest way to get started. The VSIX bundles the pre-built MCP server — no .NET SDK required.
 
-1. Download the latest `.vsix` file from [Releases](https://github.com/nicobrinkkemper/winapp-mcp/releases)
+1. Download the latest `.vsix` file from [Releases](https://github.com/floatingbrij/desktop-pilot-mcp/releases)
 2. In VS Code: `Ctrl+Shift+P` → **"Extensions: Install from VSIX..."** → select the `.vsix` file
 3. Reload VS Code
 4. The MCP server registers automatically on startup
