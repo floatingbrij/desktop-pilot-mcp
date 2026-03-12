@@ -1,0 +1,32 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# NuGet
+packages/
+
+# Publish output
+publish/
+publish2/
+publish3/
+
+# Node
+node_modules/
+out/
+
+# VSIX packages (generated artifacts)
+*.vsix
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+*.log

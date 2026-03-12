@@ -1,0 +1,55 @@
+{
+  "name": "winapp-mcp",
+  "displayName": "WinApp MCP — Windows App Automation",
+  "description": "MCP server for automating native Windows desktop apps (WinUI3, WPF, WinForms, UWP) via UI Automation. Enables Copilot to launch, inspect, click, type, and take screenshots of Windows applications.",
+  "version": "1.7.0",
+  "publisher": "brijesh-it",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Testing",
+    "AI",
+    "Chat"
+  ],
+  "keywords": [
+    "mcp",
+    "windows",
+    "automation",
+    "ui-testing",
+    "winui3",
+    "wpf",
+    "flaui",
+    "copilot",
+    "language-model-tools"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "winapp-mcp.register",
+        "title": "WinApp MCP: Register Server"
+      },
+      {
+        "command": "winapp-mcp.unregister",
+        "title": "WinApp MCP: Unregister Server"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
