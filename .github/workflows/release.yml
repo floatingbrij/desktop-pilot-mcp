@@ -34,7 +34,8 @@ jobs:
       - name: Copy server binaries to extension
         run: |
           Remove-Item -Recurse -Force vscode-winapp-mcp/server -ErrorAction SilentlyContinue
-          Copy-Item -Recurse publish/* vscode-winapp-mcp/server/
+          New-Item -ItemType Directory -Path vscode-winapp-mcp/server -Force
+          Copy-Item -Recurse -Force publish/* vscode-winapp-mcp/server/
 
       - name: Build VS Code Extension
         run: |
