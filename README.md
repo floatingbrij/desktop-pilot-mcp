@@ -21,10 +21,11 @@
   <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/downloads/floatingbrij/desktop-pilot-mcp/total?style=flat-square&label=downloads" alt="Downloads"></a>
   <a href="#installation"><img src="https://img.shields.io/badge/install-VSIX-blue?style=flat-square" alt="Install"></a>
   <img src="https://img.shields.io/badge/tools-55-green?style=flat-square" alt="55 Tools">
-  <img src="https://img.shields.io/badge/.NET-8.0-purple?style=flat-square" alt=".NET 8">
+  <img src="https://img.shields.io/badge/.NET-10.0-purple?style=flat-square" alt=".NET 10">
   <img src="https://img.shields.io/badge/MCP-1.1.0-blueviolet?style=flat-square" alt="MCP 1.1.0">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/floatingbrij/desktop-pilot-mcp?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/platform-Windows_10%2F11-0078D4?style=flat-square" alt="Windows">
+  <img src="https://img.shields.io/badge/built_with-GitHub_Copilot-8957e5?style=flat-square&logo=github-copilot" alt="Built with GitHub Copilot">
 </p>
 
 ---
@@ -54,7 +55,7 @@ WinApp MCP gives AI assistants **eyes and hands** for any Windows desktop applic
 ```
 ┌─────────────────────┐      MCP (stdio)      ┌──────────────────────┐
 │   AI Assistant       │◄─────────────────────►│   WinApp MCP Server  │
-│   (Copilot, Claude)  │   JSON-RPC over stdio │   (.NET 8 + FlaUI)   │
+│   (Copilot, Claude)  │   JSON-RPC over stdio │   (.NET 10 + FlaUI)  │
 └─────────────────────┘                        └──────────┬───────────┘
                                                           │ UI Automation
                                                           ▼
@@ -196,7 +197,7 @@ dotnet run
 
 ```powershell
 dotnet publish -c Release -r win-x64 --self-contained
-# Output: bin/Release/net8.0-windows10.0.19041.0/win-x64/publish/WinAppMCP.exe
+# Output: bin/Release/net10.0-windows10.0.19041.0/win-x64/publish/WinAppMCP.exe
 ```
 
 ---
@@ -514,7 +515,7 @@ src/
 ├── Program.cs              # Entry point — .NET Generic Host + MCP server registration
 ├── WinAppTools.cs           # 55 MCP tool definitions (thin wrappers)
 ├── WinAppAutomation.cs      # Core automation engine (~2800 lines)
-└── WinAppMCP.csproj         # .NET 8, FlaUI.UIA3 5.0.0, MCP 1.1.0
+└── WinAppMCP.csproj         # .NET 10, FlaUI.UIA3 5.0.0, MCP 1.1.0
 ```
 
 **Design Principles:**
@@ -529,7 +530,7 @@ src/
 
 | Component | Technology | Version |
 |:---|:---|:---|
-| Runtime | .NET | 8.0 |
+| Runtime | .NET | 10.0 |
 | UI Automation | FlaUI.UIA3 | 5.0.0 |
 | MCP Protocol | ModelContextProtocol | 1.1.0 |
 | Hosting | Microsoft.Extensions.Hosting | 10.0.3 |
@@ -544,7 +545,7 @@ src/
 |:---|:---|:---|:---|
 | **Tools** | 55 | ~15 | 39 |
 | **UIA Library** | FlaUI (managed) | FlaUI (managed) | Raw COM interop |
-| **Runtime** | .NET 8 | .NET 8 | .NET 9 (Native AOT) |
+| **Runtime** | .NET 10 | .NET 8 | .NET 9 (Native AOT) |
 | **Architecture** | Single process | Single process | 6 projects, multi-process |
 | **Caching** | ✅ Descendant + Window | ❌ | ❌ |
 | **Fuzzy Search** | ✅ Levenshtein distance | ❌ | ❌ |
@@ -574,7 +575,7 @@ src/
 ## Requirements
 
 - **OS:** Windows 10 (version 1903 / build 18362) or later, or Windows 11
-- **Runtime:** .NET 8.0 SDK (for building from source) — not needed if using VSIX or pre-built binary
+- **Runtime:** .NET 10.0 SDK (for building from source) — not needed if using VSIX or pre-built binary
 - **Editor:** VS Code 1.99+ with GitHub Copilot (for VSIX extension)
 - **Target Apps:** Must expose a UI Automation tree (WinUI3, WPF, WinForms, UWP, most Win32 apps)
 
@@ -609,7 +610,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p align="center">
-  <strong>Built by <a href="https://brijesharun.com">Brijesharun G</a> — for AI-powered Windows app testing.</strong>
+  <strong>Built entirely with <a href="https://github.com/features/copilot">GitHub Copilot</a> by <a href="https://brijesharun.com">Brijesharun G</a> — for AI-powered Windows app testing.</strong>
   <br>
   If this helps your workflow, <a href="https://github.com/floatingbrij/desktop-pilot-mcp">give it a ⭐</a>
 </p>

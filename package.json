@@ -1,7 +1,7 @@
 {
   "name": "winapp-mcp",
   "version": "1.7.0",
-  "description": "MCP server for automating native Windows desktop apps — Playwright for Windows. Gives AI assistants (Copilot, Claude, Cursor) full control over WinUI3, WPF, WinForms, and Win32 apps with 55 UI automation tools.",
+  "description": "MCP server for automating native Windows desktop apps — Playwright for Windows. Gives AI assistants (Copilot, Claude, Cursor) full control over WinUI3, WPF, WinForms, and Win32 apps with 55 UI automation tools. Built entirely with GitHub Copilot.",
   "author": "Brijesharun G (https://brijesharun.com)",
   "license": "MIT",
   "repository": {

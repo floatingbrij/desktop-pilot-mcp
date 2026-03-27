@@ -60,4 +60,4 @@ See the [main README](https://github.com/floatingbrij/desktop-pilot-mcp#client-c
 
 ## License
 
-MIT
+MIT — Built entirely with GitHub Copilot.
