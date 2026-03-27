@@ -3,7 +3,7 @@
   "displayName": "WinApp MCP — Windows App Automation",
   "description": "MCP server for automating native Windows desktop apps (WinUI3, WPF, WinForms, UWP) via UI Automation. Enables Copilot to launch, inspect, click, type, and take screenshots of Windows applications.",
   "version": "1.7.0",
-  "publisher": "brijesh-it",
+  "publisher": "BrijesharunG",
   "license": "MIT",
   "repository": {
     "type": "git",
