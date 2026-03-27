@@ -4,6 +4,20 @@ All notable changes to WinApp MCP will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.0.0] — 2026-03-28
+
+### Changed — .NET 10 Migration
+- **Migrated from .NET 8 to .NET 10** — .NET 8 reaches end of support in November 2026; .NET 10 is the new LTS release
+- Updated `TargetFramework` to `net10.0-windows10.0.19041.0`
+- Updated CI/CD pipeline to use .NET 10 SDK
+- Updated runtime configuration files for .NET 10 framework
+
+### Added — GitHub Copilot Attribution
+- Added "Built entirely with GitHub Copilot" badge to README
+- Added Copilot attribution across all documentation, package descriptions, and portfolio pages
+
+---
+
 ## [1.7.0] — 2026-03-12
 
 ### Added — 2 New Tools (53 → 55 total)

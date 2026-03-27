@@ -28,7 +28,7 @@ ext install BrijesharunG.winapp-mcp
 Download the latest `.vsix` from [GitHub Releases](https://github.com/floatingbrij/desktop-pilot-mcp/releases), then:
 
 ```
-code --install-extension winapp-mcp-1.7.0.vsix
+code --install-extension winapp-mcp-2.0.0.vsix
 ```
 
 ### From npm (for Claude Desktop, Cursor, Windsurf, etc.)
