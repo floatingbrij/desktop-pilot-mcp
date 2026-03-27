@@ -5,6 +5,10 @@
 <h1 align="center">WinApp MCP</h1>
 
 <p align="center">
+  <a href="https://brijesharun.com/winappmcp"><strong>Website</strong></a> · <a href="https://github.com/floatingbrij/desktop-pilot-mcp"><strong>GitHub</strong></a> · <a href="https://www.npmjs.com/package/winapp-mcp"><strong>npm</strong></a> · <a href="https://marketplace.visualstudio.com/items?itemName=BrijesharunG.winapp-mcp"><strong>VS Code Marketplace</strong></a>
+</p>
+
+<p align="center">
   <strong>Playwright for Windows Desktop Apps</strong>
   <br><br>
   A Model Context Protocol (MCP) server that gives AI assistants full control over native Windows applications — launch, inspect, click, type, screenshot, and test any WinUI3, WPF, WinForms, UWP, or Win32 app.
