@@ -1,0 +1,54 @@
+{
+  "name": "winapp-mcp",
+  "version": "1.7.0",
+  "description": "MCP server for automating native Windows desktop apps — Playwright for Windows. Gives AI assistants (Copilot, Claude, Cursor) full control over WinUI3, WPF, WinForms, and Win32 apps with 55 UI automation tools.",
+  "author": "Brijesharun G (https://brijesharun.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/floatingbrij/desktop-pilot-mcp"
+  },
+  "homepage": "https://github.com/floatingbrij/desktop-pilot-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/floatingbrij/desktop-pilot-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "windows",
+    "desktop-automation",
+    "ui-automation",
+    "winui3",
+    "wpf",
+    "winforms",
+    "win32",
+    "flaui",
+    "copilot",
+    "claude",
+    "cursor",
+    "ai-agent",
+    "playwright",
+    "testing",
+    "e2e",
+    "accessibility"
+  ],
+  "bin": {
+    "winapp-mcp": "./bin/winapp-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "server/",
+    "README.md",
+    "LICENSE"
+  ],
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prepublishOnly": "node scripts/prepare-server.js"
+  }
+}

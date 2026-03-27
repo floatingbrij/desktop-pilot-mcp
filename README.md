@@ -10,8 +10,7 @@
   A Model Context Protocol (MCP) server that gives AI assistants full control over native Windows applications — launch, inspect, click, type, screenshot, and test any WinUI3, WPF, WinForms, UWP, or Win32 app.
 </p>
 
-<p align="center">
-  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/v/release/floatingbrij/desktop-pilot-mcp?style=flat-square&color=blue&label=latest%20release" alt="Latest Release"></a>
+<p align="center">  <a href=\"https://www.npmjs.com/package/winapp-mcp\"><img src=\"https://img.shields.io/npm/v/winapp-mcp?style=flat-square&label=npm\" alt=\"npm\"></a>  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/v/release/floatingbrij/desktop-pilot-mcp?style=flat-square&color=blue&label=latest%20release" alt="Latest Release"></a>
   <a href="https://github.com/floatingbrij/desktop-pilot-mcp/stargazers"><img src="https://img.shields.io/github/stars/floatingbrij/desktop-pilot-mcp?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/downloads/floatingbrij/desktop-pilot-mcp/total?style=flat-square&label=downloads" alt="Downloads"></a>
   <a href="#installation"><img src="https://img.shields.io/badge/install-VSIX-blue?style=flat-square" alt="Install"></a>
@@ -150,51 +149,33 @@ Inspect the UI Automation tree to verify that all controls have proper Automatio
 
 ## Installation
 
-### Option 1: VS Code Extension (VSIX) — Recommended
+Works with **any MCP client** — VS Code, Claude Desktop, Cursor, Windsurf, Cline, and more.
 
-The easiest way to get started. The VSIX bundles the pre-built MCP server — no .NET SDK required.
+### Option 1: npm (Works Everywhere) ⭐
+
+The universal way to run WinApp MCP with any MCP client. No .NET SDK required.
+
+```bash
+npm install -g winapp-mcp
+```
+
+Or run directly without installing:
+
+```bash
+npx -y winapp-mcp
+```
+
+Then add to your MCP client config (see [client-specific configs](#client-configurations) below).
+
+### Option 2: VS Code Extension (VSIX)
+
+The easiest way for VS Code / GitHub Copilot users. Bundles the MCP server and auto-registers on install.
 
 1. Download the latest `.vsix` file from [Releases](https://github.com/floatingbrij/desktop-pilot-mcp/releases)
-2. In VS Code: `Ctrl+Shift+P` → **"Extensions: Install from VSIX..."** → select the `.vsix` file
-3. Reload VS Code
-4. The MCP server registers automatically on startup
+2. In VS Code: `Ctrl+Shift+P` → **"Extensions: Install from VSIX..."** → select the file
+3. Reload VS Code — the MCP server registers automatically
 
-**To verify:** Open Copilot Chat → type any prompt that would need Windows app interaction → the `winapp-mcp` tools should appear in the tool list.
-
-> **Manual Registration:** If tools don't appear automatically, run `Ctrl+Shift+P` → **"WinApp MCP: Register Server"**
-
-### Option 2: Manual MCP Configuration
-
-If you prefer direct control, add the server to your VS Code MCP settings.
-
-**Using pre-built binary:**
-
-Add to `.vscode/mcp.json` in your workspace:
-
-```json
-{
-  "servers": {
-    "winapp": {
-      "type": "stdio",
-      "command": "path/to/WinAppMCP.exe"
-    }
-  }
-}
-```
-
-**Using `dotnet run`:**
-
-```json
-{
-  "servers": {
-    "winapp": {
-      "type": "stdio",
-      "command": "dotnet",
-      "args": ["run", "--project", "path/to/src"]
-    }
-  }
-}
-```
+> **Note:** Also available from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=brijesh-it.winapp-mcp) — search "WinApp MCP" in Extensions.
 
 ### Option 3: Build from Source
 
@@ -210,6 +191,102 @@ dotnet run
 ```powershell
 dotnet publish -c Release -r win-x64 --self-contained
 # Output: bin/Release/net8.0-windows10.0.19041.0/win-x64/publish/WinAppMCP.exe
+```
+
+---
+
+## Client Configurations
+
+### VS Code / GitHub Copilot
+
+**Option A** — Install the VSIX (auto-registers, nothing to configure).
+
+**Option B** — Add to `.vscode/mcp.json` in your workspace:
+
+```json
+{
+  "servers": {
+    "winapp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "winapp-mcp"]
+    }
+  }
+}
+```
+
+### Claude Desktop
+
+Add to `%APPDATA%\Claude\claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "winapp": {
+      "command": "npx",
+      "args": ["-y", "winapp-mcp"]
+    }
+  }
+}
+```
+
+### Cursor
+
+Add to Cursor Settings → MCP Servers, or in `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "winapp": {
+      "command": "npx",
+      "args": ["-y", "winapp-mcp"]
+    }
+  }
+}
+```
+
+### Windsurf
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "winapp": {
+      "command": "npx",
+      "args": ["-y", "winapp-mcp"]
+    }
+  }
+}
+```
+
+### Cline (VS Code Extension)
+
+Add via Cline MCP Settings or in `cline_mcp_settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "winapp": {
+      "command": "npx",
+      "args": ["-y", "winapp-mcp"]
+    }
+  }
+}
+```
+
+### Any Other MCP Client
+
+WinApp MCP uses **stdio transport** (JSON-RPC over stdin/stdout). Point your client at:
+
+```
+npx -y winapp-mcp
+```
+
+Or directly at the executable:
+
+```
+path/to/WinAppMCP.exe
 ```
 
 ---
@@ -475,7 +552,9 @@ src/
 | **Drag & Drop** | ✅ | ❌ | ❌ |
 | **Minimized App Support** | ✅ Auto-restore + PrintWindow | ❌ | ❌ |
 | **Locked Session Support** | ✅ UIA pattern fallback | ❌ | ❌ |
-| **VS Code Extension** | ✅ VSIX | ❌ | ❌ |
+| **VS Code Extension** | ✅ VSIX + Marketplace | ❌ | ❌ |
+| **npm Package** | ✅ `npx winapp-mcp` | ❌ | ❌ |
+| **Multi-Client** | ✅ Copilot, Claude, Cursor, Windsurf | ❌ VS Code only | ❌ |
 
 ---
 

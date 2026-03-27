@@ -1,5 +1,5 @@
 # Build outputs
-**/bin/
+src/bin/
 **/obj/
 
 # IDE
@@ -22,6 +22,9 @@ out/
 
 # VSIX packages (generated artifacts)
 *.vsix
+
+# npm publish copies server binaries here (already in vscode-winapp-mcp/server/)
+/server/
 
 # OS
 Thumbs.db
