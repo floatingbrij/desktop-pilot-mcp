@@ -80,6 +80,7 @@ jobs:
 
       - name: Publish to VS Code Marketplace
         if: startsWith(github.ref, 'refs/tags/')
+        continue-on-error: true
         run: |
           cd vscode-winapp-mcp
           npx @vscode/vsce publish --pat ${{ secrets.VSCE_PAT }} --no-dependencies
@@ -93,6 +94,7 @@ jobs:
 
       - name: Publish to npm
         if: startsWith(github.ref, 'refs/tags/')
+        continue-on-error: true
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
