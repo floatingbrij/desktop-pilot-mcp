@@ -10,7 +10,9 @@
   A Model Context Protocol (MCP) server that gives AI assistants full control over native Windows applications — launch, inspect, click, type, screenshot, and test any WinUI3, WPF, WinForms, UWP, or Win32 app.
 </p>
 
-<p align="center">  <a href=\"https://www.npmjs.com/package/winapp-mcp\"><img src=\"https://img.shields.io/npm/v/winapp-mcp?style=flat-square&label=npm\" alt=\"npm\"></a>  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/v/release/floatingbrij/desktop-pilot-mcp?style=flat-square&color=blue&label=latest%20release" alt="Latest Release"></a>
+<p align="center">
+  <a href="https://www.npmjs.com/package/winapp-mcp"><img src="https://img.shields.io/npm/v/winapp-mcp?style=flat-square&label=npm" alt="npm"></a>
+  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/v/release/floatingbrij/desktop-pilot-mcp?style=flat-square&color=blue&label=latest%20release" alt="Latest Release"></a>
   <a href="https://github.com/floatingbrij/desktop-pilot-mcp/stargazers"><img src="https://img.shields.io/github/stars/floatingbrij/desktop-pilot-mcp?style=flat-square" alt="Stars"></a>
   <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/downloads/floatingbrij/desktop-pilot-mcp/total?style=flat-square&label=downloads" alt="Downloads"></a>
   <a href="#installation"><img src="https://img.shields.io/badge/install-VSIX-blue?style=flat-square" alt="Install"></a>
@@ -175,7 +177,7 @@ The easiest way for VS Code / GitHub Copilot users. Bundles the MCP server and a
 2. In VS Code: `Ctrl+Shift+P` → **"Extensions: Install from VSIX..."** → select the file
 3. Reload VS Code — the MCP server registers automatically
 
-> **Note:** Also available from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=brijesh-it.winapp-mcp) — search "WinApp MCP" in Extensions.
+> **Note:** Also available from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=BrijesharunG.winapp-mcp) — search "WinApp MCP" in Extensions.
 
 ### Option 3: Build from Source
 

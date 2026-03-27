@@ -1,58 +1,63 @@
 # WinApp MCP — Windows App Automation
 
-VS Code extension that provides an MCP server for automating native Windows desktop apps (WinUI3, WPF, WinForms, UWP) via UI Automation.
+**Playwright for Windows Desktop Apps** — A VS Code extension that gives AI assistants (GitHub Copilot, Claude, Cursor) full control over native Windows applications through the Model Context Protocol.
 
 ## Features
 
-Once installed, VS Code automatically registers a **winapp** MCP server. Copilot (or any MCP client) can use these tools:
+- **55 UI automation tools** — launch, inspect, click, type, drag, screenshot, and test any Windows app
+- **Auto-registers** — the MCP server starts working as soon as you install the extension
+- **No .NET SDK needed** — bundles a self-contained server
+- **Works with minimized/locked apps** — falls back to UIA patterns automatically
 
-| Tool | Description |
-|------|-------------|
-| `launch_app` | Launch a Windows application by path |
-| `attach_to_app` | Attach to a running app by process name |
-| `attach_to_pid` | Attach to a running app by PID |
-| `close_app` | Close an attached application |
-| `get_snapshot` | Get the UI automation tree of the app |
-| `find_elements` | Search for elements with filters (type, id, name) |
-| `click_element` | Click an element by AutomationId or Name |
-| `double_click_element` | Double-click an element |
-| `right_click_element` | Right-click an element |
-| `click_at_coordinates` | Click at absolute screen coordinates |
-| `invoke_element` | Invoke (activate) an element |
-| `set_element_value` | Set the value of an input element |
-| `fill_form` | Fill multiple form fields in one call |
-| `type_text` | Type text into the focused element |
-| `press_key` | Press a keyboard key |
-| `press_key_combo` | Press a key combination (e.g. Ctrl+S) |
-| `scroll_element` | Scroll an element |
-| `wait_for_element` | Wait for an element to appear |
-| `take_screenshot` | Capture a screenshot of the app window |
-| `get_focused_element` | Get the currently focused element |
-| `read_element` | Read properties of a specific element |
-| `find_all_elements` | Find all elements matching criteria |
-| `list_apps` | List running applications |
-| `list_windows` | List windows of an attached app |
-| `list_desktop_windows` | List all desktop windows |
-| `release_all` | Release all held keys/mouse buttons |
-| `invalidate_cache` | Clear cached window references |
+## Supported App Frameworks
 
-## Requirements
-
-- Windows 10/11
-- VS Code 1.99+ with GitHub Copilot
-- .NET 8 Runtime (bundled server is self-contained, so typically not needed)
+WinUI3, WPF, WinForms, UWP, Win32, Electron
 
 ## Installation
 
-### From .vsix file
+### From VS Code Marketplace
+
+Search **"WinApp MCP"** in the Extensions tab, or:
+
 ```
-code --install-extension winapp-mcp-1.0.0.vsix
+ext install BrijesharunG.winapp-mcp
 ```
 
-### Manual
-1. Copy the extension folder to `%USERPROFILE%\.vscode\extensions\winapp-mcp-1.0.0`
-2. Restart VS Code
+### From VSIX
 
-## How It Works
+Download the latest `.vsix` from [GitHub Releases](https://github.com/floatingbrij/desktop-pilot-mcp/releases), then:
 
-The extension bundles a .NET 8 MCP server that uses [FlaUI](https://github.com/FlaUI/FlaUI) (UI Automation) to interact with Windows applications. VS Code auto-starts it as a stdio MCP server when Copilot needs it.
+```
+code --install-extension winapp-mcp-1.7.0.vsix
+```
+
+### From npm (for Claude Desktop, Cursor, Windsurf, etc.)
+
+```bash
+npx -y winapp-mcp
+```
+
+See the [main README](https://github.com/floatingbrij/desktop-pilot-mcp#client-configurations) for client-specific config snippets.
+
+## Requirements
+
+- Windows 10 (1903+) or Windows 11
+- VS Code 1.99+
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `WinApp MCP: Register Server` | Manually register the MCP server |
+| `WinApp MCP: Unregister Server` | Remove the MCP server registration |
+
+## Links
+
+- [Full documentation (55 tools)](https://github.com/floatingbrij/desktop-pilot-mcp/blob/main/DOCUMENTATION.md)
+- [Changelog](https://github.com/floatingbrij/desktop-pilot-mcp/blob/main/CHANGELOG.md)
+- [npm package](https://www.npmjs.com/package/winapp-mcp)
+- [GitHub](https://github.com/floatingbrij/desktop-pilot-mcp)
+
+## License
+
+MIT

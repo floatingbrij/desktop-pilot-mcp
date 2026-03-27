@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Build MCP Server (self-contained)
         run: |
@@ -57,15 +58,43 @@ jobs:
             ## WinApp MCP v${{ steps.version.outputs.VERSION }}
 
             ### Install
+
+            **npm (Claude, Cursor, Windsurf, any MCP client):**
+            ```bash
+            npx -y winapp-mcp
+            ```
+
+            **VS Code Marketplace:**
+            Search "WinApp MCP" in Extensions, or `ext install BrijesharunG.winapp-mcp`
+
+            **VSIX (manual):**
             1. Download `winapp-mcp-${{ steps.version.outputs.VERSION }}.vsix` below
             2. In VS Code: `Ctrl+Shift+P` → **Extensions: Install from VSIX...**
-            3. Reload VS Code — the MCP server registers automatically
 
             See [CHANGELOG.md](https://github.com/floatingbrij/desktop-pilot-mcp/blob/main/CHANGELOG.md) for what's new.
           files: |
             vscode-winapp-mcp/*.vsix
           draft: false
           prerelease: false
+
+      - name: Publish to VS Code Marketplace
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          cd vscode-winapp-mcp
+          npx @vscode/vsce publish --pat ${{ secrets.VSCE_PAT }} --no-dependencies
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+
+      - name: Prepare npm package
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          node scripts/prepare-server.js
+
+      - name: Publish to npm
+        if: startsWith(github.ref, 'refs/tags/')
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
