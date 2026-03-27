@@ -1,0 +1,74 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build MCP Server (self-contained)
+        run: |
+          cd src
+          dotnet publish -c Release -r win-x64 --self-contained -o ../publish
+
+      - name: Copy server binaries to extension
+        run: |
+          Remove-Item -Recurse -Force vscode-winapp-mcp/server -ErrorAction SilentlyContinue
+          Copy-Item -Recurse publish/* vscode-winapp-mcp/server/
+
+      - name: Build VS Code Extension
+        run: |
+          cd vscode-winapp-mcp
+          npm ci
+          npm run compile
+          npx @vscode/vsce package --no-dependencies
+
+      - name: Get version
+        id: version
+        run: |
+          $ver = (Get-Content vscode-winapp-mcp/package.json | ConvertFrom-Json).version
+          echo "VERSION=$ver" >> $env:GITHUB_OUTPUT
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: WinApp MCP v${{ steps.version.outputs.VERSION }}
+          body: |
+            ## WinApp MCP v${{ steps.version.outputs.VERSION }}
+
+            ### Install
+            1. Download `winapp-mcp-${{ steps.version.outputs.VERSION }}.vsix` below
+            2. In VS Code: `Ctrl+Shift+P` → **Extensions: Install from VSIX...**
+            3. Reload VS Code — the MCP server registers automatically
+
+            See [CHANGELOG.md](https://github.com/floatingbrij/desktop-pilot-mcp/blob/main/CHANGELOG.md) for what's new.
+          files: |
+            vscode-winapp-mcp/*.vsix
+          draft: false
+          prerelease: false
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: winapp-mcp-vsix
+          path: vscode-winapp-mcp/*.vsix

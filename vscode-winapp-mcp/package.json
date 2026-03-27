@@ -5,6 +5,10 @@
   "version": "1.7.0",
   "publisher": "brijesh-it",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/floatingbrij/desktop-pilot-mcp"
+  },
   "engines": {
     "vscode": "^1.99.0"
   },

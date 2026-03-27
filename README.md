@@ -11,12 +11,14 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/v/release/floatingbrij/desktop-pilot-mcp?style=flat-square&color=blue&label=latest%20release" alt="Latest Release"></a>
+  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/stargazers"><img src="https://img.shields.io/github/stars/floatingbrij/desktop-pilot-mcp?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/floatingbrij/desktop-pilot-mcp/releases"><img src="https://img.shields.io/github/downloads/floatingbrij/desktop-pilot-mcp/total?style=flat-square&label=downloads" alt="Downloads"></a>
   <a href="#installation"><img src="https://img.shields.io/badge/install-VSIX-blue?style=flat-square" alt="Install"></a>
   <img src="https://img.shields.io/badge/tools-55-green?style=flat-square" alt="55 Tools">
   <img src="https://img.shields.io/badge/.NET-8.0-purple?style=flat-square" alt=".NET 8">
-  <img src="https://img.shields.io/badge/FlaUI-UIA3_5.0-orange?style=flat-square" alt="FlaUI">
   <img src="https://img.shields.io/badge/MCP-1.1.0-blueviolet?style=flat-square" alt="MCP 1.1.0">
-  <img src="https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square" alt="MIT License">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/floatingbrij/desktop-pilot-mcp?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/platform-Windows_10%2F11-0078D4?style=flat-square" alt="Windows">
 </p>
 
@@ -24,7 +26,7 @@
 
 ## Why This Exists
 
-Browser automation has Playwright. Mobile has Appium. **Windows desktop had nothing** — until now.
+Browser automation has Playwright. Mobile has Appium. But **Windows desktop automation for AI agents?** The existing options didn't go deep enough.
 
 AI assistants like GitHub Copilot, Claude, and ChatGPT can browse the web, run terminal commands, and edit files. But they **cannot interact with native Windows applications**. They can't click a button in your WinUI3 app, read a value from a WPF form, or test a WinForms dialog.
 
@@ -197,8 +199,8 @@ Add to `.vscode/mcp.json` in your workspace:
 ### Option 3: Build from Source
 
 ```powershell
-git clone https://github.com/nicobrinkkemper/winapp-mcp.git
-cd winapp-mcp/src
+git clone https://github.com/floatingbrij/desktop-pilot-mcp.git
+cd desktop-pilot-mcp/src
 dotnet build
 dotnet run
 ```
@@ -506,8 +508,8 @@ Contributions are welcome! Please:
 ### Development Setup
 
 ```powershell
-git clone https://github.com/nicobrinkkemper/winapp-mcp.git
-cd winapp-mcp/src
+git clone https://github.com/floatingbrij/desktop-pilot-mcp.git
+cd desktop-pilot-mcp/src
 dotnet restore
 dotnet build
 dotnet run  # Starts the MCP server on stdio
@@ -522,7 +524,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p align="center">
-  <strong>Built for AI-powered Windows app testing.</strong>
+  <strong>Built by <a href="https://brijesharun.com">Brijesharun G</a> — for AI-powered Windows app testing.</strong>
   <br>
-  If this helps your workflow, give it a ⭐
+  If this helps your workflow, <a href="https://github.com/floatingbrij/desktop-pilot-mcp">give it a ⭐</a>
 </p>
